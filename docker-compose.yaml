@@ -1,0 +1,46 @@
+version: "3.9"
+services:
+  # Terminal
+  terminal:
+    image: kasmweb_customize/terminal:${KASMWEB_VER}
+    build:
+      context: ./template_deb
+      args:
+        - KASMWEB_IMG=kasmweb/terminal
+        - KASMWEB_VER=${KASMWEB_VER}
+
+  # Ubuntu Focal (20.04)
+  ubuntu-focal-desktop:
+    image: kasmweb_customize/ubuntu-focal-desktop:${KASMWEB_VER}
+    build:
+      context: ./template_deb
+      args:
+        - KASMWEB_IMG=kasmweb/ubuntu-focal-desktop
+        - KASMWEB_VER=${KASMWEB_VER}
+
+  # Ubuntu Jammy (22.04)
+  ubuntu-jammy-desktop:
+    image: kasmweb_customize/ubuntu-jammy-desktop:${KASMWEB_VER}
+    build:
+      context: ./template_deb
+      args:
+        - KASMWEB_IMG=kasmweb/ubuntu-jammy-desktop
+        - KASMWEB_VER=${KASMWEB_VER}
+
+  # Kali Linux
+  core-kali-rolling:
+    image: kasmweb_customize/core-kali-rolling:${KASMWEB_VER}
+    build:
+      context: ./template_deb
+      args:
+        - KASMWEB_IMG=kasmweb/core-kali-rolling
+        - KASMWEB_VER=${KASMWEB_VER}
+
+  # CentOS 7
+  centos-7-desktop:
+    image: kasmweb_customize/centos-7-desktop:${KASMWEB_VER}
+    build:
+      context: ./template_rpm
+      args:
+        - KASMWEB_IMG=kasmweb/centos-7-desktop
+        - KASMWEB_VER=${KASMWEB_VER}
